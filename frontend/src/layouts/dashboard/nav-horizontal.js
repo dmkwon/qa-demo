@@ -30,7 +30,7 @@ function NavHorizontal() {
         top: HEADER.H_DESKTOP_OFFSET,
       }}
     >
-      <Toolbar
+      {/* <Toolbar
         sx={{
           ...bgBlur({
             color: theme.palette.background.default,
@@ -43,7 +43,7 @@ function NavHorizontal() {
             currentRole: user?.role || 'admin',
           }}
         />
-      </Toolbar>
+      </Toolbar> */}
 
       <HeaderShadow />
     </AppBar>

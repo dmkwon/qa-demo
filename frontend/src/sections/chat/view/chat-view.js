@@ -107,7 +107,7 @@ export default function ChatView() {
   return (
     <Container maxWidth={settings.themeStretch ? false : 'xl'}>
       <Stack component={Card} direction="row" sx={{ height: '69vh' }}>
-        {renderNav}
+        {/* {renderNav} */}
 
         <Stack
           sx={{

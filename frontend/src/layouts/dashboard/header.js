@@ -70,9 +70,9 @@ export default function Header({ onOpenNav }) {
   const renderContent = (
     <>
       {lgUp && isNavHorizontal && <Logo sx={{ mr: 2.5 }} />}
-      {!lgUp && (
-        <IconButton onClick={onOpenNav}>
-          <SvgColor src="/assets/icons/navbar/ic_menu_item.svg" />
+      {!lgUp && isNavHorizontal && (
+        <IconButton onClick={onOpenNav} sx={{ml : 1}}>
+          <Logo sx={{ mr: 1.5 }} />
         </IconButton>
       )}
 
@@ -122,6 +122,23 @@ export default function Header({ onOpenNav }) {
             duration: theme.transitions.duration.shorter,
           }),
           ...(lgUp && {
+            width: `calc(100% - ${NAV.W_VERTICAL + 1}px)`,
+            height: HEADER.H_DESKTOP,
+            ...(offsetTop && {
+              height: HEADER.H_DESKTOP_OFFSET,
+            }),
+            ...(isNavHorizontal && {
+              width: 1,
+              bgcolor: 'background.default',
+              height: HEADER.H_DESKTOP_OFFSET,
+              borderBottom: `dashed 1px ${theme.palette.divider}`,
+            }),
+            ...(isNavMini && {
+              width: `calc(100% - ${NAV.W_MINI + 1}px)`,
+            }),
+          }),
+          
+          ...(!lgUp && {
             width: `calc(100% - ${NAV.W_VERTICAL + 1}px)`,
             height: HEADER.H_DESKTOP,
             ...(offsetTop && {
