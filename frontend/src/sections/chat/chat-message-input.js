@@ -3,6 +3,7 @@ import { sub } from 'date-fns';
 import { useRef, useState, useCallback, useMemo } from 'react';
 // @mui
 import Stack from '@mui/material/Stack';
+import { LoadingButton } from '@mui/lab';
 import InputBase from '@mui/material/InputBase';
 import IconButton from '@mui/material/IconButton';
 // routes
@@ -16,6 +17,7 @@ import uuidv4 from 'src/utils/uuidv4';
 import { sendMessage, createConversation } from 'src/api/chat';
 // components
 import Iconify from 'src/components/iconify';
+import { Button } from '@mui/material';
 
 // ----------------------------------------------------------------------
 
@@ -106,6 +108,16 @@ export default function ChatMessageInput({
     [conversationData, message, messageData, onAddRecipients, router, selectedConversationId]
   );
 
+  const [isLoading, setLoading] = useState(false);
+
+  const handleClick = () => {
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false); // 작업 완료 후 로딩 상태 해제
+    }, 2000); // 예: 2초 후에 로딩 상태 해제
+  };
+
+
   return (
     <>
       <InputBase
@@ -127,9 +139,20 @@ export default function ChatMessageInput({
             <IconButton onClick={handleAttach}>
               <Iconify icon="eva:attach-2-fill" />
             </IconButton> */}
+
             <IconButton>
               <Iconify icon="solar:microphone-bold" />
             </IconButton>
+
+            {isLoading ? (
+              <LoadingButton loading variant="outlined">
+                Ask
+              </LoadingButton>
+            ) : (
+              <Button variant="outlined" onClick={handleClick}>
+                Ask
+              </Button>
+            )}
           </Stack>
         }
         sx={{

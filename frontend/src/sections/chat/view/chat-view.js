@@ -5,7 +5,8 @@ import { useEffect, useState, useCallback } from 'react';
 import Card from '@mui/material/Card';
 import Stack from '@mui/material/Stack';
 import Container from '@mui/material/Container';
-// import Typography from '@mui/material/Typography';
+import Typography from '@mui/material/Typography';
+
 // routes
 import { paths } from 'src/routes/paths';
 import { useRouter, useSearchParams } from 'src/routes/hook';
@@ -106,6 +107,7 @@ export default function ChatView() {
 
   return (
     <Container maxWidth={settings.themeStretch ? false : 'xl'}>
+      <Typography variant="h6" ml={1} mb={1}>정보 검색</Typography>
       <Stack component={Card} direction="row" sx={{ height: '69vh' }}>
         {/* {renderNav} */}
 

@@ -75,10 +75,10 @@ export default function Header({ onOpenNav }) {
           <Logo sx={{ mr: 1.5 }} />
         </IconButton>
       )}
-
+{/* 결제 아이콘 삭제요
       <IconButton onClick={onClickPayment}>
         <SvgColor src="/assets/icons/navbar/ic_menu_item.svg" />
-      </IconButton>
+      </IconButton> */}
 
       {/* <Searchbar /> */}
       <Stack
